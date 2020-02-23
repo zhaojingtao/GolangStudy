@@ -1,0 +1,12 @@
+主要是为了获取变量的类型和运行时的变量的值
+还有可以在运行时改变变量的值
+reflect.valueOf  -- 获取值
+reflect.typeOf  -- 获取类型
+但需要注意，这个reflect包里有一个kind的类型集合，里面包含了golang的所有类型
+这个kind可以从valueOf和typeOf的方法中获取，typeOf获取的string()为字符串类型，不利于switch...case的处理，而king可以满足相关的开发
+
+注意: 有一个类型指针类型在kind中的表述为 reflect.Ptr
+
+在反射中给指针赋值
+v:=reflect.valueOf(data)
+v.Elem().setXXX()  // v.Elem()就是类型与获取指针所引用的实体*v
